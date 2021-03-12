@@ -15,8 +15,11 @@ def new(request) :
 def create(request) :
     if(request.method == "POST") :
         post = Blog() # post변수에 Blog객체생성
+        
+        # Blog 객체는 title, body, date로 이뤄짐
         post.title = request.POST['title'] # title에 해당되는 것을 post.title에 담음
         post.body = request.POST['body']
         post.date = timezone.now()
+        
         post.save() # model객체.save()를 통해 모델 객체를 DB에 저장
     return redirect('home')

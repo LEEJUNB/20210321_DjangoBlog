@@ -1,7 +1,7 @@
 <!-- 블로그 글 작성 -->
 
 <!-- 버튼을 누르면 create 함수 실행 -->
-<form action="{$ url 'create' $}" method="POST">
+<form action="{% url 'create' %}" method="POST">
     <!-- 보안 문제 해결-->
     {% csrf_token %}
     <div>
@@ -9,7 +9,7 @@
         <input type="text" name="title" id="title">
     </div>
     <div>
-        <label for="body">제목</label>
+        <label for="body">본문</label><br/>
         <textarea name="body" id="body" cols="30" rows="10"></textarea>
     </div>
     <input type="submit" value="글 생성">
