@@ -9,4 +9,7 @@ urlpatterns = [
     # html form 이용한 블로그 객체
     path('new/', views.new, name='new'),
     path('create/', views.create, name='create'),
+
+    # django form 이용한 블로그 객체생성
+    path('djangocreate/', views.djangocreate, name='djangocreate'),
 ]
