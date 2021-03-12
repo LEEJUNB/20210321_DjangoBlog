@@ -5,7 +5,9 @@ from .forms import BlogForm # forms.py의 BlogForm객체(Django Form)는 .forms�
 from .forms import BlogModelForm # forms.py의 BlogModelForm객체(Django Model Form)는 .forms를 상속받았음
 
 def home(request) :
-    return render(request, 'index.html')
+    # posts = Blog.objects.all() # 블로그 객체들을 모두 띄우는 코드
+    posts = Blog.objects.filter().order_by('-date') # 필터를 통해 최신순으로 정렬가능
+    return render(request, 'index.html', {'posts' : posts})
 
 # 블로그 글 작성 html
 def new(request) :
