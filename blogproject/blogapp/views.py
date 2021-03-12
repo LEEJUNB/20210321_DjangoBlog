@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect # redirect : 함수 실행시 특�
 from django.utils import timezone
 from .models import Blog # models.py의 Blog객체(HTML Form)는 .models를 상속받았음
 from .forms import BlogForm # forms.py의 BlogForm객체(Django Form)는 .forms를 상속받았음
+from .forms import BlogModelForm # forms.py의 BlogModelForm객체(Django Model Form)는 .forms를 상속받았음
 
 def home(request) :
     return render(request, 'index.html')
@@ -47,4 +48,19 @@ def djangocreate(request) :
     # 3번째 인자로 views.py내의 데이터를 html에 dict type으로 넘기기 가능
     return render(request, 'form_create.html', {'form':form} ) 
 
-    
+# models.py에 있는 Blog객체 기반으로 제작
+def modelformcreate(request) : 
+    # POST
+    # 입력 내용 DB에 저장
+    if request.method == 'POST':
+        form = BlogModelForm(request.POST)
+        # 유효한 데이터 타입이라면
+        if form.is_valid() : 
+            form.save() # model객체.save()를 통해 모델 객체를 DB에 저장
+            return redirect('home')
+    # GET
+    # 입력 내용 불러오기
+    else : 
+        form = BlogModelForm() # form를 form_create.html에 보내주기
+    # 3번째 인자로 views.py내의 데이터를 html에 dict type으로 넘기기 가능
+    return render(request, 'form_create.html', {'form':form} )

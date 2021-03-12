@@ -12,4 +12,7 @@ urlpatterns = [
 
     # django form 이용한 블로그 객체생성
     path('djangocreate/', views.djangocreate, name='djangocreate'),
+
+    # django modelform 이용한 블로그 객체생성
+    path('modelformcreate/', views.modelformcreate, name='modelformcreate')
 ]
