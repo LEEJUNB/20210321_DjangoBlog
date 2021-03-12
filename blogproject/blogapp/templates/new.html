@@ -1,0 +1,16 @@
+<!-- 블로그 글 작성 -->
+
+<!-- 버튼을 누르면 create 함수 실행 -->
+<form action="{$ url 'create' $}" method="POST">
+    <!-- 보안 문제 해결-->
+    {% csrf_token %}
+    <div>
+        <label for="title">제목</label><br/>
+        <input type="text" name="title" id="title">
+    </div>
+    <div>
+        <label for="body">제목</label>
+        <textarea name="body" id="body" cols="30" rows="10"></textarea>
+    </div>
+    <input type="submit" value="글 생성">
+</form>
