@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect # redirect : 함수 실행시 특정 html,url로 이동하도록함  
+# redirect : 함수 실행시 특정 html,url로 이동하도록함  
+# get_object_or_404() : pk값(프라이머리키값)을 이용해 특정 모델 객체 하나만 갖고오거나 없다면 404 띄우기
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Blog # models.py의 Blog객체(HTML Form)는 .models를 상속받았음
 from .forms import BlogForm # forms.py의 BlogForm객체(Django Form)는 .forms를 상속받았음
@@ -66,3 +68,12 @@ def modelformcreate(request) :
         form = BlogModelForm() # form를 form_create.html에 보내주기
     # 3번째 인자로 views.py내의 데이터를 html에 dict type으로 넘기기 가능
     return render(request, 'form_create.html', {'form':form} )
+
+# 몇 번째(id) 블로그글인지를 인자로 받음
+def detail(request, blog_id) : 
+    # blog_id번째 블로그 글을 DB로 가지고와서 detail.html로 띄움
+    # pk값이 blog_id인 Blog에 해당되는 객체 1개 가져올것
+    blog_detail = get_object_or_404(Blog, pk=blog_id)
+    # blog_id 번째 블로그 글을 detail.html로 띄워주는 코드
+    return render(request, 'detail.html', {'blog_detail':blog_detail})
+    

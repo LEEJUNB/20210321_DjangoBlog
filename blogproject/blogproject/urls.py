@@ -14,5 +14,9 @@ urlpatterns = [
     path('djangocreate/', views.djangocreate, name='djangocreate'),
 
     # django modelform 이용한 블로그 객체생성
-    path('modelformcreate/', views.modelformcreate, name='modelformcreate')
+    path('modelformcreate/', views.modelformcreate, name='modelformcreate'),
+
+    # url/detail/id 로 나타나도록.
+    # <int:blog_id>는 detail 함수에 넘길 값
+    path('detail/<int:blog_id>', views.detail, name='detail'),
 ]
