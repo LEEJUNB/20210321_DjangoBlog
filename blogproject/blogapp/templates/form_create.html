@@ -1,6 +1,6 @@
 <h1>django Form 이용한 새 글 작성</h1>
 
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data"> <!--html에서 파일업로드하려면 enctype="multipart/form-data"필요-->
     <!-- secure -->
     {% csrf_token %}
     

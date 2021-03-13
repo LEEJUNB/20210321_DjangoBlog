@@ -56,8 +56,8 @@ def djangocreate(request) :
 def modelformcreate(request) : 
     # POST
     # 입력 내용 DB에 저장
-    if request.method == 'POST':
-        form = BlogModelForm(request.POST)
+    if request.method == 'POST' or request.method == 'FILES':
+        form = BlogModelForm(request.POST, request.FILES)
         # 유효한 데이터 타입이라면
         if form.is_valid() : 
             form.save() # model객체.save()를 통해 모델 객체를 DB에 저장
