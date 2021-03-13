@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from blogapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,4 +21,9 @@ urlpatterns = [
     # url/detail/id 로 나타나도록.
     # <int:blog_id>는 detail 함수에 넘길 값
     path('detail/<int:blog_id>', views.detail, name='detail'),
+
+    
 ]
+
+# media파일에 접근하는 url추가
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
