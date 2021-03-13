@@ -13,6 +13,5 @@ class BlogForm(forms.Form) :
 class BlogModelForm(forms.ModelForm) :
     class Meta : 
         model = Blog # form의 기반은 Blog 클래스
-        fields = ['title','body'] # 입력받을 필드타입 설정
-
-        
+        fields= '__all__' # 모든 필드타입
+        #fields = ['title','body'] # 입력받을 필드타입 설정
