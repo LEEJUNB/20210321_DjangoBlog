@@ -1,4 +1,4 @@
-# CommunityBase(BlogSite)
+# Blog
 - 블로그 기능 구현
 
 # 사용방법
