@@ -5,6 +5,7 @@ from django.utils import timezone
 from .models import Blog # models.py의 Blog객체(HTML Form)는 .models를 상속받았음
 from .forms import BlogForm # forms.py의 BlogForm객체(Django Form)는 .forms를 상속받았음
 from .forms import BlogModelForm # forms.py의 BlogModelForm객체(Django Model Form)는 .forms를 상속받았음
+from .forms import CommentForm
 
 def home(request) :
     # posts = Blog.objects.all() # 블로그 객체들을 모두 띄우는 코드
@@ -74,6 +75,24 @@ def detail(request, blog_id) :
     # blog_id번째 블로그 글을 DB로 가지고와서 detail.html로 띄움
     # pk값이 blog_id인 Blog에 해당되는 객체 1개 가져올것
     blog_detail = get_object_or_404(Blog, pk=blog_id)
+
+    # forms.py의 CommentForm 띄워주기
+    comment_form = CommentForm()
+
     # blog_id 번째 블로그 글을 detail.html로 띄워주는 코드
-    return render(request, 'detail.html', {'blog_detail':blog_detail})
-    
+    return render(request, 'detail.html', {'blog_detail':blog_detail, 'comment_form':comment_form})
+
+# 작성 댓글 저장  
+def create_comment(request, blog_id) :
+    filled_form = CommentForm(request.POST)
+
+    # commit=False : 아직은 저장히지 말고 대기하라는 의미
+    if filled_form.is_valid() :
+        finished_form = filled_form.save(commit=False)
+        # 어떤 게시글의 댓글인지를 post에 저장
+        # post에다가 Blog 객체의 pk값이 blog_id인 것을 1개 담아줌
+        finished_form.post = get_object_or_404(Blog, pk=blog_id)
+        # 그 후 저장하기
+        finished_form.save()
+    # blog_id 값을 가지고 있는 detail url로 이동한다.
+    return redirect('detail', blog_id)

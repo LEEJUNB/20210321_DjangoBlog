@@ -12,7 +12,7 @@ class Blog(models.Model) :
 
 # Blog 객체에 종속적인 comment 객체
 class Comment(models.Model) :
-    comment = models.CharField(max_length=200)
+    comment = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     
     # 게시글에 댓글이 달리게 만드는 post 변수

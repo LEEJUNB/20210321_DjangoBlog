@@ -22,6 +22,9 @@ urlpatterns = [
     # <int:blog_id>는 detail 함수에 넘길 값
     path('detail/<int:blog_id>', views.detail, name='detail'),
 
+    # 입력한 댓글 저장
+    # <int:blog_id>는 어떤 게시글에서 댓글이 작성됐는지를 create_comment에 인자로 넘김
+    path('create_comment/<int:blog_id>', views.create_comment, name='create_comment'),
     
 ]
 

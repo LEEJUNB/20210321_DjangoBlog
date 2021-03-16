@@ -1,3 +1,5 @@
+<!-- 게시글 작성하기 -->
+
 <h1> 제목 </h1>
 {{ blog_detail.title }}
 
@@ -8,7 +10,26 @@
 {{ blog_detail.body }}
 
 <!--업로드 사진 나타내기-->
+<h3> 업로드 파일 </h3>
 {% if blog_detail.photo %}
     {{ blog_detail.photo.url }}
     <img src="{{ blog_detail.photo.url }}" alt="" height="600">
 {% endif %}
+
+<hr>
+<!-- 댓글객체 CommentForm -->
+<h3> 댓글 </h3>
+<!-- 어떤 블로그글인지 특정하기 위해 PrimaryKey인 id넣기-->
+<form method="POST" action="{% url 'create_comment' blog_detail.id %}">
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type="submit">
+</form>
+<hr>
+<!-- 댓글 목록 -->
+<!-- 특정객체(blog_detail)를 참조(Foreign)하는 어떤 모델(comment)의 집합(_set.all) 불러오기-->
+<!-- blog_detail을 참조하는 모든 댓글목록 가져오기 -->
+{% for comment in blog_detail.comment_set.all %}
+<p>{{ comment }} </p>
+<hr>
+{% endfor %}

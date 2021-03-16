@@ -2,7 +2,7 @@
 # HTML form의 models.py 역할 : 클래스 객체 생성
 
 from django import forms
-from .models import Blog # modelform에서 Blog 객체를 사용함
+from .models import Blog, Comment # modelform에서 Blog, Comment 객체를 사용함
 
 # forms의 Form을 상속받는 BlogForm 클래스
 class BlogForm(forms.Form) : 
@@ -15,3 +15,10 @@ class BlogModelForm(forms.ModelForm) :
         model = Blog # form의 기반은 Blog 클래스
         fields= '__all__' # 모든 필드타입
         #fields = ['title','body'] # 입력받을 필드타입 설정
+
+# 댓글 입력 공간
+# detail.html에 찍기
+class CommentForm(forms.ModelForm) : 
+    class Meta : 
+        model = Comment
+        fields = ['comment']
