@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 from blogapp import views
+# blogapp과 이름이 겹치기 때문. 이것보단 include로 url을 계층관리하는게 좋음
+from accounts import views as accounts_views 
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,6 +28,8 @@ urlpatterns = [
     # <int:blog_id>는 어떤 게시글에서 댓글이 작성됐는지를 create_comment에 인자로 넘김
     path('create_comment/<int:blog_id>', views.create_comment, name='create_comment'),
     
+    # login 기능 추가
+    path('login/', accounts_views.login, name='login'),
 ]
 
 # media파일에 접근하는 url추가
