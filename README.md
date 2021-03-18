@@ -6,6 +6,7 @@
 2. 가상환경 설치 : python -m venv myvenv
 3. django 설치 확인 : pip freeze
 4. 가상환경 실행 : source myvenv/script/activate
+5. 서버 실행 : python manage.py runserver
 
 # 기능
 - 로그인/로그아웃
