@@ -1,5 +1,5 @@
 # DjangoWebSite
-- 목표 : 백엔드 프레임워크인 django를 활용하여 블로그, 커뮤니티 사이트 구현
+- 목표 : 백엔드 프레임워크인 django를 활용하여 커뮤니티 사이트의 기본 틀인 블로그 기능 구현
 
 # 사용방법
 1. Repository clone
