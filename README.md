@@ -8,13 +8,13 @@
 4. 가상환경 실행 : source myvenv/script/activate
 5. 서버 실행 : python manage.py runserver
 
-# 기능
+# 주요 기능
 - 로그인/로그아웃
 - 게시글 작성
 - 파일 업로드 기능
 - 댓글 작성
 
-# 확장 예정 기능
+# 추가 기능
 - 커뮤니티 기능
 - 회원 가입
 - API 활용
