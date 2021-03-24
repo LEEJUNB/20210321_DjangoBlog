@@ -90,6 +90,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Login 성공시 홈으로 이동하도록 설정
+# accounts > views.py > def login > if user is not None > return redirect('home')과 동일
+LOGIN_REDIRECT_URL = "/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
