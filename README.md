@@ -14,7 +14,7 @@
 - 파일 업로드 기능
 - 댓글 작성
 
-# 추가 기능
+# 확장 프로젝트 [DjangoCommunity](https://github.com/LEEJUNB/DjangoCommunity)
+## 추가 기능
 - 커뮤니티 기능
 - 회원 가입
-- API 활용
