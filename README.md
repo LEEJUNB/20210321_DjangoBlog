@@ -1,4 +1,4 @@
-# DjangoWebSite
+# Step 5. DjangoWebSite
 - 목표 : 백엔드 프레임워크인 django를 활용하여 커뮤니티 사이트의 기본 틀인 블로그 기능 구현
 
 # 사용방법
@@ -23,4 +23,4 @@
 3. [x] 댓글 작성
 4. [x] 로그인/로그아웃
 
-# 확장 프로젝트 [DjangoCommunity](https://github.com/LEEJUNB/DjangoCommunity)
+# Next Step 확장 프로젝트 [DjangoCommunity](https://github.com/LEEJUNB/DjangoCommunity)
