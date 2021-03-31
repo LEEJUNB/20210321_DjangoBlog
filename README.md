@@ -1,6 +1,10 @@
 # Step 5. DjangoWebSite
 - 목표 : 백엔드 프레임워크인 django를 활용하여 커뮤니티 사이트의 기본 틀인 블로그 기능 구현
 
+# 
+Framwwork : Django
+DB : SQLlite
+
 # 사용방법
 1. Repository clone : `git clone https://github.com/LEEJUNB/DjangoBlog`
 2. 가상환경 설치 : `python -m venv myvenv`
